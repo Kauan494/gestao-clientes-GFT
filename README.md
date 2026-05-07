@@ -95,13 +95,16 @@ http://localhost:8080/swagger-ui.html
 ### Demonstração
 #### **Tela de início do Swagger:** 
 ![Swagger](./imagens/swagger-tela-inicio.png)
+
 #### **Adicionar clientes(POST):**
 Vá na parte de POST e clique em "Try it out" e preencha os campos corretamente
 
 ![criar](./imagens/criar_cliente.png)
+
 Depois clique em 'Execute' e o cliente será criado
 
 ![criado](./imagens/criado.png)
+
 #### **Listar Clientes(GET):**
 Vá na parte de GET/clientes e clique em "Try it out", depois "Execute" que já ira aparecer uma lista de clientes
 
@@ -119,6 +122,7 @@ Selecione um ID que deseja e depois clique em "Try it out"
 E com isso ira aparecer o cliente com o Id selecionado
 
 ![buscarid](./imagens/buscarÍD2.png)
+
 #### Atualizar cliente(PUT):
 Selecione o Id do cliente que deseja atualizar e atualize o que desejar no body
 
@@ -133,10 +137,12 @@ Nessa parte também existem duas regras, não pode mudar o cpf
 e não pode colocar um e-mail já em uso
 
 ![atualizar](./imagens/email_duplicidade.png)
+
 #### **Deletar cliente(DELETE):**
 Digite o Id que deseja deletar e ele não aparecera mais na lista por exemplo(deletei o id=3)
 
 ![deletar](./imagens/delete.png)
+
 #### **Erros de validação:**
 - Cpf único:
   
