@@ -101,7 +101,6 @@ Vá na parte de POST e clique em "Try it out" e preencha os campos corretamente
 
 ![criar](./imagens/criar_cliente.png)
 
-Depois clique em 'Execute' e o cliente será criado
 
 ![criado](./imagens/criado.png)
 
@@ -115,9 +114,9 @@ Vá na parte de GET/clientes e clique em "Try it out", depois "Execute" que já 
 - ##### Page: e também tem o page onde é só selecionar a página que deseja, o tamanho e caso queira no 'sort' é possível ordenar pela string que desejar(exemplo: nome,ASC ou endereco,ASC)
 
 #### **Buscar por ID(GET{id):**
-Selecione um ID que deseja e depois clique em "Try it out"
-
+Selecione um ID que deseja 
 ![buscarid](./imagens/buscarÍD.png)
+
 
 E com isso ira aparecer o cliente com o Id selecionado
 
@@ -127,9 +126,13 @@ E com isso ira aparecer o cliente com o Id selecionado
 Selecione o Id do cliente que deseja atualizar e atualize o que desejar no body
 
 ![atualizar](./imagens/Atualizar.png)
+
+
 Após a mudança, só buscar o mesmo id(atualizei o endereço):
 
 ![atualizar](./imagens/mudança.png)
+
+
 Nessa parte também existem duas regras, não pode mudar o cpf
 
 ![atualizar](./imagens/cpf_inalteravel.png)
