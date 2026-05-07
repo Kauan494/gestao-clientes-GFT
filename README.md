@@ -97,25 +97,34 @@ http://localhost:8080/swagger-ui.html
 ![Swagger](./imagens/swagger-tela-inicio.png)
 #### **Adicionar clientes(POST):**
 Vá na parte de POST e clique em "Try it out" e preencha os campos corretamente
+
 ![criar](./imagens/criar_cliente.png)
 Depois clique em 'Execute' e o cliente será criado
+
 ![criado](./imagens/criado.png)
 #### **Listar Clientes(GET):**
 Vá na parte de GET/clientes e clique em "Try it out", depois "Execute" que já ira aparecer uma lista de clientes
+
 ![lista](./imagens/listados.png)
+
 - ##### Buscar por nome: note que também tem a parte de buscar cliente por nome, bastar digitar o nome do cliente que queira procurar
 - ##### Buscar por cpf: mesma coisa do buscar nome mas dessa vez só colocar o cpf do cliente
 - ##### Page: e também tem o page onde é só selecionar a página que deseja, o tamanho e caso queira no 'sort' é possível ordenar pela string que desejar(exemplo: nome,ASC ou endereco,ASC)
 
 #### **Buscar por ID(GET{id):**
 Selecione um ID que deseja e depois clique em "Try it out"
+
 ![buscarid](./imagens/buscarÍD.png)
+
 E com isso ira aparecer o cliente com o Id selecionado
+
 ![buscarid](./imagens/buscarÍD2.png)
 #### Atualizar cliente(PUT):
 Selecione o Id do cliente que deseja atualizar e atualize o que desejar no body
+
 ![atualizar](./imagens/Atualizar.png)
 Após a mudança, só buscar o mesmo id(atualizei o endereço):
+
 ![atualizar](./imagens/mudança.png)
 Nessa parte também existem duas regras, não pode mudar o cpf
 
@@ -126,21 +135,29 @@ e não pode colocar um e-mail já em uso
 ![atualizar](./imagens/email_duplicidade.png)
 #### **Deletar cliente(DELETE):**
 Digite o Id que deseja deletar e ele não aparecera mais na lista por exemplo(deletei o id=3)
+
 ![deletar](./imagens/delete.png)
 #### **Erros de validação:**
 - Cpf único:
+  
 ![cpf_unico](./imagens/cpf_unico.png)
 - E-mail único:
+  
 ![email_unico](./imagens/email_unico.png)
 - Nome obrigatório:
+  
 ![nome](./imagens/nome.png)
 - Cpf obrigatório:
+  
 ![cpf](./imagens/cpf_obrigatorio.png)
-- E-mail obrigatório
+- E-mail obrigatório:
+  
 ![email](./imagens/email_obrigatorio.png)
-- Validar formato de e-mail
+- Validar formato de e-mail:
+  
 ![email](./imagens/email_invalido.png)
 - Validar CPF com tamanho certo:
+  
 ![cpf](./imagens/cpf_invalido.png)
 
 #### **Tratamento de erro**
