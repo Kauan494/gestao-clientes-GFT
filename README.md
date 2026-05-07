@@ -122,18 +122,25 @@ Digite o Id que deseja deletar e ele não aparecera mais na lista por exemplo(de
 ![deletar](./imagens/delete.png)
 #### **Erros de validação:**
 - Cpf único:
+  
 ![cpf_unico](./imagens/cpf_unico.png)
 - E-mail único:
+  
 ![email_unico](./imagens/email_unico.png)
 - Nome obrigatório:
+  
 ![nome](./imagens/nome.png)
 - Cpf obrigatório:
+  
 ![cpf](./imagens/cpf_obrigatorio.png)
-- E-mail obrigatório
+- E-mail obrigatório:
+  
 ![email](./imagens/email_obrigatorio.png)
-- Validar formato de e-mail
+- Validar formato de e-mail:
+  
 ![email](./imagens/email_invalido.png)
 - Validar CPF com tamanho certo:
+  
 ![cpf](./imagens/cpf_invalido.png)
 
 #### **Tratamento de erro**
