@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -18,10 +19,12 @@ public class ClienteDTO {
     private String cpf;
 
     @NotBlank(message = "Email é obrigatório!")
-    @Email(message = "Email inválido!")
+    @Email(message = "Formato de e-mail inválido!")
     private String email;
-
+    
+    private Long id;
     private String telefone;
     private LocalDate dataNascimento;
     private String endereco;
+    private LocalDateTime dataCadastro;
 }

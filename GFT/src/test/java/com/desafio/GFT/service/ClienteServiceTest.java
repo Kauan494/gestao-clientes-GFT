@@ -11,7 +11,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
+
 
 import java.util.Optional;
 
@@ -61,6 +61,17 @@ class ClienteServiceTest {
     }
 
     @Test
+    @DisplayName("Retorna erro quando CPF estiver vazio ou nulo")
+    void salvarClienteDTOCpfVazio() {
+        clienteDTO.setCpf(""); 
+
+        RuntimeException exception = assertThrows(RuntimeException.class,
+                () -> clienteService.salvarClienteDTO(clienteDTO));
+    
+        assertEquals("CPF é obrigatório", exception.getMessage());
+    }
+
+    @Test
     @DisplayName("Retorna erro quando Cpf estiver inválido")
     void salvarClienteDTOCpfinvalido() {
         clienteDTO.setCpf("123");
@@ -69,7 +80,7 @@ class ClienteServiceTest {
                 () -> clienteService.salvarClienteDTO(clienteDTO));
         assertEquals("CPF inválido", exception.getMessage());
     }
-
+    
     @Test
     @DisplayName("Retorna erro quando CPF já cadstrado")
     void salvarClienteDTOCpfduplicado(){
@@ -89,6 +100,17 @@ class ClienteServiceTest {
         RuntimeException exception = assertThrows(RuntimeException.class,
                 ()-> clienteService.salvarClienteDTO(clienteDTO));
         assertEquals("Email é obrigatório", exception.getMessage());
+    }
+
+    @Test
+    @DisplayName("Retorna erro quando formato do email for inválido")
+    void salvarClienteDTOEmailFormatoInvalido() {
+        clienteDTO.setEmail("pedrogmail"); 
+
+        RuntimeException exception = assertThrows(RuntimeException.class,
+                () -> clienteService.salvarClienteDTO(clienteDTO));
+    
+        assertEquals("Formato de e-mail inválido", exception.getMessage());
     }
 
     @Test
@@ -192,11 +214,13 @@ class ClienteServiceTest {
     @BeforeEach
     void setup() {
         clienteDTO = new ClienteDTO();
+        clienteDTO.setId(1L);
         clienteDTO.setNome("Pedro");
         clienteDTO.setCpf("11122233344");
         clienteDTO.setEmail("teste@email.com");
 
         cliente = new Cliente();
+        cliente.setId(1L);
         cliente.setNome("Pedro");
         cliente.setCpf("11122233344");
         cliente.setEmail("teste@email.com");
