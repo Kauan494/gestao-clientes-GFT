@@ -117,6 +117,13 @@ Selecione o Id do cliente que deseja atualizar e atualize o que desejar no body
 ![atualizar](./imagens/Atualizar.png)
 Após a mudança, só buscar o mesmo id(atualizei o endereço):
 ![atualizar](./imagens/mudança.png)
+Nessa parte também existem duas regras, não pode mudar o cpf
+
+![atualizar](./imagens/cpf_inalteravel.png)
+
+e não pode colocar um e-mail já em uso
+
+![atualizar](./imagens/email_duplicidade.png)
 #### **Deletar cliente(DELETE):**
 Digite o Id que deseja deletar e ele não aparecera mais na lista por exemplo(deletei o id=3)
 ![deletar](./imagens/delete.png)
