@@ -49,32 +49,9 @@ public class ClienteService {
     }
 
     public Cliente salvarClienteDTO(ClienteDTO clienteDTO) {
-        if(clienteDTO.getNome() == null || clienteDTO.getNome().isEmpty()) {
-            throw new RuntimeException("Nome é obrigatório");
-        }
-        
-        if (clienteDTO.getCpf() == null || clienteDTO.getCpf().trim().isEmpty()) {
-           throw new RuntimeException("CPF é obrigatório");
-        }
-
-
-        if (clienteDTO.getCpf().length() != 11) {
-           throw new RuntimeException("CPF inválido");
-
-        }
-
         if(clienteRepository.findByCpf(clienteDTO.getCpf()).isPresent()) {
             throw new RuntimeException("CPF já cadastrado");
         }
-
-        if(clienteDTO.getEmail() == null || clienteDTO.getEmail().isEmpty()) {
-            throw new RuntimeException("Email é obrigatório");
-        }
-
-        if(!clienteDTO.getEmail().contains("@") || !clienteDTO.getEmail().contains(".")) {
-            throw new RuntimeException("Formato de e-mail inválido");
-        }
-
         if(clienteRepository.findByEmail(clienteDTO.getEmail()).isPresent()){
             throw new RuntimeException("Email já cadastrado");
         }

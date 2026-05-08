@@ -51,37 +51,6 @@ class ClienteServiceTest {
     }
 
     @Test
-    @DisplayName("Retorna erro quando nome estiver vazio")
-    void salvarClienteDTONomeVazio() {
-        clienteDTO.setNome(null);
-
-        RuntimeException exception = assertThrows(RuntimeException.class,
-                () -> clienteService.salvarClienteDTO(clienteDTO));
-        assertEquals("Nome é obrigatório", exception.getMessage());
-    }
-
-    @Test
-    @DisplayName("Retorna erro quando CPF estiver vazio ou nulo")
-    void salvarClienteDTOCpfVazio() {
-        clienteDTO.setCpf(""); 
-
-        RuntimeException exception = assertThrows(RuntimeException.class,
-                () -> clienteService.salvarClienteDTO(clienteDTO));
-    
-        assertEquals("CPF é obrigatório", exception.getMessage());
-    }
-
-    @Test
-    @DisplayName("Retorna erro quando Cpf estiver inválido")
-    void salvarClienteDTOCpfinvalido() {
-        clienteDTO.setCpf("123");
-
-        RuntimeException exception = assertThrows(RuntimeException.class,
-                () -> clienteService.salvarClienteDTO(clienteDTO));
-        assertEquals("CPF inválido", exception.getMessage());
-    }
-    
-    @Test
     @DisplayName("Retorna erro quando CPF já cadstrado")
     void salvarClienteDTOCpfduplicado(){
         //é para mostrar q já existe o moesmo registro no banco
@@ -91,28 +60,6 @@ class ClienteServiceTest {
                 ()-> clienteService.salvarClienteDTO(clienteDTO));
         assertEquals("CPF já cadastrado", exception.getMessage());
     }
-
-    @Test
-    @DisplayName("Retorna erro quando email estiver vazio")
-    void salvarClienteDTOEmailvazio(){
-        clienteDTO.setEmail("");
-
-        RuntimeException exception = assertThrows(RuntimeException.class,
-                ()-> clienteService.salvarClienteDTO(clienteDTO));
-        assertEquals("Email é obrigatório", exception.getMessage());
-    }
-
-    @Test
-    @DisplayName("Retorna erro quando formato do email for inválido")
-    void salvarClienteDTOEmailFormatoInvalido() {
-        clienteDTO.setEmail("pedrogmail"); 
-
-        RuntimeException exception = assertThrows(RuntimeException.class,
-                () -> clienteService.salvarClienteDTO(clienteDTO));
-    
-        assertEquals("Formato de e-mail inválido", exception.getMessage());
-    }
-
     @Test
     @DisplayName("Retorna erro quando email já cadastrado")
     void salvarClienteDTOEmailduplicado(){
