@@ -16,7 +16,7 @@ import java.util.List;
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)//Será gerado automaticamente
-    private long id;
+    private Long id;
 
     private String nome;
     private String cpf;
@@ -38,7 +38,7 @@ public class Cliente {
 
     }
 
-    @OneToMany(mappedBy = "cliente")//Significa que esse atributo cliente esta dentro da classe endereco
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)//Significa que esse atributo cliente esta dentro da classe endereco
     private List<Endereco> enderecos;
 
 }

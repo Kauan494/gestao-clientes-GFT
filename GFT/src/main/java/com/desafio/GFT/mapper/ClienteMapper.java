@@ -9,9 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ClienteMapper {
-    public static Cliente toEntity(ClienteDTO clienteDTO){
+    public static Cliente toEntity(ClienteDTO clienteDTO) {
         Cliente cliente = new Cliente();
-        cliente.setId(clienteDTO.getId());
         cliente.setNome(clienteDTO.getNome());
         cliente.setCpf(clienteDTO.getCpf());
         cliente.setEmail(clienteDTO.getEmail());
@@ -19,9 +18,9 @@ public class ClienteMapper {
         cliente.setDataNascimento(clienteDTO.getDataNascimento());
         cliente.setDataCadastro(clienteDTO.getDataCadastro());
 
-        if(clienteDTO.getEnderecos() != null){
+        if (clienteDTO.getEnderecos() != null) {
             List<Endereco> enderecos = new ArrayList<>();
-            for(EnderecoDTO enderecoDTO : clienteDTO.getEnderecos()){
+            for (EnderecoDTO enderecoDTO : clienteDTO.getEnderecos()) {
                 Endereco endereco = new Endereco();
                 endereco.setCep(enderecoDTO.getCep());
                 endereco.setLogradouro(enderecoDTO.getLogradouro());
@@ -39,14 +38,14 @@ public class ClienteMapper {
         return cliente;
     }
 
-    public static void updateEntity(ClienteDTO clienteDTO, Cliente cliente){
+    public static void updateEntity(ClienteDTO clienteDTO, Cliente cliente) {
         cliente.setNome(clienteDTO.getNome());
         cliente.setEmail(clienteDTO.getEmail());
         cliente.setTelefone(clienteDTO.getTelefone());
         cliente.setDataNascimento(clienteDTO.getDataNascimento());
     }
 
-    public static ClienteDTO toDTO(Cliente cliente){
+    public static ClienteDTO toDTO(Cliente cliente) {
         ClienteDTO clienteDTO = new ClienteDTO();
         clienteDTO.setId(cliente.getId());
         clienteDTO.setNome(cliente.getNome());
@@ -55,6 +54,28 @@ public class ClienteMapper {
         clienteDTO.setTelefone(cliente.getTelefone());
         clienteDTO.setDataNascimento(cliente.getDataNascimento());
         clienteDTO.setDataCadastro(cliente.getDataCadastro());
+
+
+        if (cliente.getEnderecos() != null) {
+            List<EnderecoDTO> enderecosDTO = new ArrayList<>();
+
+            for (Endereco endereco : cliente.getEnderecos()) {
+                EnderecoDTO eDTO = new EnderecoDTO();
+                eDTO.setCep(endereco.getCep());
+                eDTO.setLogradouro(endereco.getLogradouro());
+                eDTO.setNumero(endereco.getNumero());
+                eDTO.setComplemento(endereco.getComplemento());
+                eDTO.setBairro(endereco.getBairro());
+                eDTO.setCidade(endereco.getCidade());
+                eDTO.setEstado(endereco.getEstado());
+
+                enderecosDTO.add(eDTO);
+            }
+
+            clienteDTO.setEnderecos(enderecosDTO);
+        }
+
         return clienteDTO;
+
     }
 }

@@ -29,6 +29,17 @@ public class ClienteService {
         return clienteRepository.findAll(pageable).map(ClienteMapper::toDTO);
     }
 
+    //esse é o medtodo certo para GET
+    public ClienteDTO buscarClienteDTO(Long id) {
+        Cliente cliente = clienteRepository.findById(id)
+                .orElseThrow(() ->
+                        new RecursoNaoEncontradoException("Cliente com ID " + id + " não encontrado!"));
+
+        return ClienteMapper.toDTO(cliente);
+    }
+
+
+
     public Cliente buscarPorId(Long id) {
         //buscar por um cliente pelo id
         return clienteRepository.findById(id)

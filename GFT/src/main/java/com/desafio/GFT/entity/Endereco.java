@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor //cria construtor vazio
 @AllArgsConstructor//cria construtor com parametros
-
+@Table(name = "enderecos")
 //Esse lado manda no relacionamento
 public class Endereco {
 

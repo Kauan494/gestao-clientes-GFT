@@ -1,0 +1,2 @@
+ALTER TABLE enderecos
+    ADD COLUMN estado VARCHAR(255);

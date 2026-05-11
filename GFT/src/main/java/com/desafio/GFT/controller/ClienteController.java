@@ -2,6 +2,7 @@ package com.desafio.GFT.controller;
 
 import com.desafio.GFT.dto.ClienteDTO;
 import com.desafio.GFT.entity.Cliente;
+import com.desafio.GFT.mapper.ClienteMapper;
 import com.desafio.GFT.service.ClienteService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -44,22 +45,25 @@ public class ClienteController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> buscarCliente(@PathVariable Long id){
-        Cliente cliente = clienteService.buscarPorId(id);
-        return ResponseEntity.ok().body(cliente);
+    public ResponseEntity<ClienteDTO> buscarCliente(@PathVariable Long id){
+        return ResponseEntity.ok(clienteService.buscarClienteDTO(id));
     }
-
-    @PostMapping//Criar o cliente e armazenar no service
-    public ResponseEntity<Cliente> criarCliente(@Valid @RequestBody ClienteDTO clienteDTO){
+    //DTO não tem cliente dentro de endereco
+    // Loop infinito eliminado
+    @PostMapping
+    public ResponseEntity<ClienteDTO> criarCliente(@Valid @RequestBody ClienteDTO clienteDTO){
         Cliente cliente = clienteService.salvarClienteDTO(clienteDTO);
-        return ResponseEntity.ok(cliente);
+        return ResponseEntity.ok(ClienteMapper.toDTO(cliente));
     }
 
-    @PutMapping("/{id}")//Atualizar o cliente
-    public ResponseEntity<Cliente> atualizarCliente(@PathVariable Long id,@Valid @RequestBody ClienteDTO clienteDTO){
+    @PutMapping("/{id}")
+    public ResponseEntity<ClienteDTO> atualizarCliente(
+            @PathVariable Long id,
+            @Valid @RequestBody ClienteDTO clienteDTO){
         Cliente clienteAtualizado = clienteService.atualizarCliente(id, clienteDTO);
-        return ResponseEntity.ok(clienteAtualizado);
+        return ResponseEntity.ok(ClienteMapper.toDTO(clienteAtualizado));
     }
+
 
     @DeleteMapping("/{id}")//Deletar o cliente
     public ResponseEntity<Void> deletarCliente(@PathVariable Long id){
