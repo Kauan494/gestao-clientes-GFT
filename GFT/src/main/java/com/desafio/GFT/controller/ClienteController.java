@@ -4,6 +4,7 @@ import com.desafio.GFT.dto.ClienteDTO;
 import com.desafio.GFT.entity.Cliente;
 import com.desafio.GFT.service.ClienteService;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -14,11 +15,11 @@ import java.util.List;
 //Onde fica os endpoints
 @RestController//Para trabalhar com API REST
 @RequestMapping("/api/clientes")//Porta de entrada do controller
+@RequiredArgsConstructor //Ele gera um construtor com todos os atributos que são: final ou anotados como @NonNull
 public class ClienteController {
+
     private final ClienteService clienteService;
-    public ClienteController(ClienteService clienteService) {
-        this.clienteService = clienteService;
-    }
+
 
     @GetMapping//listar todos os clientes usando paginação
     public ResponseEntity<?> listarClientes(

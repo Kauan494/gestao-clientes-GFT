@@ -7,6 +7,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Setter
 @Getter
@@ -19,7 +20,6 @@ public class Cliente {
 
     private String nome;
     private String cpf;
-    private String endereco;
     private String telefone;
     private String email;
     private LocalDate dataNascimento;
@@ -29,15 +29,17 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(String nome, String cpf, String endereco, String telefone, String email, LocalDate dataNascimento) {
+    public Cliente(String nome, String cpf, String telefone, String email, LocalDate dataNascimento) {
         this.nome = nome;
         this.cpf = cpf;
-        this.endereco = endereco;
         this.telefone = telefone;
         this.email = email;
         this.dataNascimento = dataNascimento;
 
     }
+
+    @OneToMany(mappedBy = "cliente")//Significa que esse atributo cliente esta dentro da classe endereco
+    private List<Endereco> enderecos;
 
 }
 
