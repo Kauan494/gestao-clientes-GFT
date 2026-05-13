@@ -3,6 +3,7 @@ package com.desafio.GFT.service;
 import com.desafio.GFT.dto.ClienteDTO;
 import com.desafio.GFT.entity.Cliente;
 import com.desafio.GFT.exception.RecursoNaoEncontradoException;
+import com.desafio.GFT.exception.RegrasDeNegocioException;
 import com.desafio.GFT.mapper.ClienteMapper;
 import com.desafio.GFT.repository.ClienteRepository;
 import org.springframework.data.domain.Page;
@@ -61,10 +62,10 @@ public class ClienteService {
 
     public Cliente salvarClienteDTO(ClienteDTO clienteDTO) {
         if(clienteRepository.findByCpf(clienteDTO.getCpf()).isPresent()) {
-            throw new RuntimeException("CPF já cadastrado");
+            throw new RegrasDeNegocioException("CPF já cadastrado");
         }
         if(clienteRepository.findByEmail(clienteDTO.getEmail()).isPresent()){
-            throw new RuntimeException("Email já cadastrado");
+            throw new RegrasDeNegocioException("Email já cadastrado");
         }
 
         //Converter o DTO para Entity

@@ -54,5 +54,17 @@ public class GlobalExceptionHandler{
         return new ResponseEntity<>(body,HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
+    //Erro de regra de negócio
+    @ExceptionHandler(RegrasDeNegocioException.class)
+    public ResponseEntity<Object> handleRegraDeNegocio(RegrasDeNegocioException ex){
+
+        Map<String,Object> body = new LinkedHashMap<>();
+        body.put("timestamp", LocalDateTime.now());
+        body.put("status", HttpStatus.CONFLICT.value());
+        body.put("error", "Regra de negócio");
+        body.put("message", ex.getMessage());
+
+        return new ResponseEntity<>(body, HttpStatus.CONFLICT);
+    }
 
 }
